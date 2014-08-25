@@ -12,19 +12,37 @@ class Route
 
     public function __callStatic($method, $arguments)
     {
-        return self::register(strtoupper($method), array_shift($arguments), array_shift($arguments));
+        $method = strtoupper($method);
+
+        if (!self::validateMethod($method))
+            return false;
+
+        $pattern = array_shift($arguments);
+        $file = array_shift($arguments);
+
+        return self::register($method, $pattern, $file);
     }
 
-    public static function register($method, $pattern, $file)
+    protected static function validateMethod($method)
     {
-        if ((!array_key_exists($pattern, self::$patterns))
-            || (array_key_exists($pattern, self::$patterns) && self::$patterns[$pattern]['method'] !== $method)) {
-            self::$patterns[$pattern] = array('method' => $method, 'file' => $file);
-
-            return true;
-        } else {
+        if (!in_array($method, array('GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'))) {
             return false;
         }
+
+        return true;
+    }
+
+    protected static function register($method, $pattern, $file)
+    {
+        if ((array_key_exists($pattern, self::$patterns) && self::$patterns[$pattern]['method'] === $method)) {
+            return false;
+        }
+        self::$patterns[$pattern] = array(
+            'method' => $method,
+            'file' => $file
+        );
+
+        return true;
     }
 
     public static function routes()

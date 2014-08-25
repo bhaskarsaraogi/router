@@ -14,8 +14,8 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     public function testRouter()
     {
         // Register routes
-        Route::get('^/foo/bar$', __DIR__ . 'foo/bar.php');
-        Route::get('^/foo/baz$', __DIR__ . 'foo/baz.php');
+        Route::get('^/foo/bar$', __DIR__ . '/foo/bar.php');
+        Route::get('^/foo/baz$', __DIR__ . '/foo/baz.php');
 
         Router::start();
     }
