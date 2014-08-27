@@ -11,7 +11,7 @@ class Router
     {
     }
 
-    public function start()
+    public static function start()
     {
         self::$request = new Request();
         self::$routes = Route::routes();
