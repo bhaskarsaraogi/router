@@ -17,7 +17,7 @@ class Route
         if (!self::validateMethod($method))
             return false;
 
-        $pattern = array_shift($arguments);
+        $pattern = preg_quote(array_shift($arguments), '/');
         $file = array_shift($arguments);
 
         return self::register($method, $pattern, $file);
