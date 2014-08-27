@@ -14,12 +14,12 @@ class Request
     public function __construct()
     {
         $url = $_SERVER['PATH_INFO'];
-        $urlParts = parse_url($url);
+        $parsedUrl = parse_url($url);
         $this->method = $_SERVER['REQUEST_METHOD'];
-        $this->scheme = $urlParts['scheme'];
-        $this->host = $urlParts['host'];
-        $this->uri = $urlParts['path'];
-        $this->query = $urlParts['query'];
-        $this->fragment = $urlParts['fragment'];
+        $this->scheme = isset($parsedUrl['scheme']) ? $parsedUrl['scheme'] : '';
+        $this->host = isset($parsedUrl['host']) ? $parsedUrl['host'] : '';
+        $this->uri = isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
+        $this->query = isset($parsedUrl['query']) ? $parsedUrl['query'] : '';
+        $this->fragment = isset($parsedUrl['fragment']) ? $parsedUrl['fragment'] : '';
     }
 }
