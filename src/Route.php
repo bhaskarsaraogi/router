@@ -10,7 +10,7 @@ class Route
     {
     }
 
-    public function __callStatic($method, $arguments)
+    public static function __callStatic($method, $arguments)
     {
         $method = strtoupper($method);
 
