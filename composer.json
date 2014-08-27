@@ -1,0 +1,17 @@
+{
+    "name": "collectivism/router",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aniket Pant",
+            "email": "me@aniketpant.com"
+        },
+        {
+            "name": "Bhaskar Saraogi",
+            "email": "bhaskar.saraogi@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    }
+}
