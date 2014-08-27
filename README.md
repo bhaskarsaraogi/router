@@ -1,5 +1,4 @@
-router [![Build
-Status](https://travis-ci.org/collectivism/router.svg)](https://travis-ci.org/collectivism/router)
+router [![Build Status](https://travis-ci.org/collectivism/router.svg)](https://travis-ci.org/collectivism/router)
 ======
 
 ## Installation
